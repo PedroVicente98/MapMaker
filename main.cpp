@@ -4,5 +4,5 @@
 
 void main()
 {
-
+	std::cout << "baba";
 }
