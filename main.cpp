@@ -36,6 +36,6 @@ int main(int argc, char* argv[]) {
 
     // Clean up
     SDL_Quit();
-    return 0
+    return 0;
 }
 
