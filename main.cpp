@@ -19,6 +19,7 @@ int main(int argc, char* argv[]) {
         480,                               // height, in pixels
         SDL_WINDOW_OPENGL                  // flags - see below
     );
+    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
 
     // Check that the window was successfully created
     if (window == NULL) {
@@ -26,6 +27,12 @@ int main(int argc, char* argv[]) {
         printf("Could not create window: %s\n", SDL_GetError());
         return 1;
     }
+
+    SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+
+    SDL_RenderClear(renderer);
+
+    SDL_RenderPresent(renderer);
 
     // The window is open: could enter program loop here (see SDL_PollEvent())
 
