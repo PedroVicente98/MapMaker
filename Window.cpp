@@ -125,6 +125,3 @@ bool Window::isMinimized()
     return mMinimized;
 }
 
-Window::~Window()
-{
-}
