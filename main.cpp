@@ -1,8 +1,6 @@
 # include "Canvas.h"
 #include <iostream>
-
-int Teste()
-{}
+#include "SDL.h"
 
 void main()
 {
