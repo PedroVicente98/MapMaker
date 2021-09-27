@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
 
     // Create an application window with the following settings:
     window = SDL_CreateWindow(
-        "An SDL2 window",                  // window title
+        "D&D",                  // window title
         SDL_WINDOWPOS_CENTERED,           // initial x position
         SDL_WINDOWPOS_CENTERED,           // initial y position
         640,                               // width, in pixels
@@ -26,6 +26,7 @@ int main(int argc, char* argv[]) {
         printf("Could not create window: %s\n", SDL_GetError());
         return 1;
     }
+
 
     SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 
