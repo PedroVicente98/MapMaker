@@ -7,6 +7,12 @@
     <Filter Include="libs">
       <UniqueIdentifier>{9c88f13b-5adb-4a5b-8119-bacc8abf3ff2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Program">
+      <UniqueIdentifier>{07839a73-2e1f-4eb8-aba7-940470020276}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Program\Window">
+      <UniqueIdentifier>{0a90894e-fcc4-49b1-ac58-8305da78bd58}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -15,10 +21,16 @@
     <ClCompile Include="Canvas.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Program\Window</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Canvas.h">
       <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Program\Window</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

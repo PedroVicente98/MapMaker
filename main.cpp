@@ -1,8 +1,25 @@
 #include "Canvas.h"
+#include "Window.h"
 #include <iostream>
 #include "SDL.h"
 
 
+int main(int argc, char* argv[])
+{
+    Window::Instance()->Init();
+    while (Window::Instance()->isRunning())
+    {
+        Window::Instance()->Events();
+        Window::Instance()->Update();
+        Window::Instance()->Render();
+    }
+
+    Window::Instance()->Clean();
+
+    return 0;
+}
+
+/*
 int main(int argc, char* argv[]) {
 
     SDL_Window* window;                    // Declare a pointer
@@ -12,11 +29,11 @@ int main(int argc, char* argv[]) {
     // Create an application window with the following settings:
     window = SDL_CreateWindow(
         "D&D",                  // window title
-        SDL_WINDOWPOS_CENTERED,           // initial x position
-        SDL_WINDOWPOS_CENTERED,           // initial y position
+        SDL_WINDOWPOS_CENTERED,              // initial x position
+        SDL_WINDOWPOS_CENTERED,             // initial y position
         640,                               // width, in pixels
-        480,                               // height, in pixels
-        SDL_WINDOW_OPENGL                  // flags - see below
+        480,                              // height, in pixels
+        SDL_WINDOW_OPENGL                // flags - see below
     );
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
 
@@ -45,3 +62,4 @@ int main(int argc, char* argv[]) {
     SDL_Quit();
     return 0;
 }
+*/
