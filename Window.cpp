@@ -8,22 +8,25 @@ Window::Window()
    mKeyboardFocus = false;
    mFullScreen = false;
    mMinimized = false;
-   mWidth = 0;
-   mHeight = 0;
+   GetResolution();
 }
 
-bool Window::InitWindow(int Width, int Height)
+void Window::GetResolution()
+{
+    SDL_DisplayMode DM;
+    SDL_GetCurrentDisplayMode(0, &DM);
+    mWidth = DM.w;
+    mHeight = DM.h;
+}
+
+bool Window::InitWindow()
 {
     //Create window
-    mWindow = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Width, Height, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+    mWindow = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, mWidth, mHeight, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
     if (mWindow != NULL)
     {
         mMouseFocus = true;
         mKeyboardFocus = true;
-        mWidth = Width;
-        mHeight = Height;
-
-
     }
     
 

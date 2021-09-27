@@ -8,7 +8,7 @@ public:
 
     void test();
     //Creates window
-    bool InitWindow(int Width, int Height);
+    bool InitWindow();
 
     //Creates renderer from internal window
     SDL_Renderer* createRenderer();
@@ -19,7 +19,9 @@ public:
     //Deallocates internals
     void free();
 
+
     //Window dimensions
+    void GetResolution();
     int getWidth();
     int getHeight();
 

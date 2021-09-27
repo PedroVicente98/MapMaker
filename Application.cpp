@@ -16,7 +16,7 @@ bool Application::Init()
 	Window window = Window();
 	Settings setting = Settings();
 
-	window.InitWindow(setting.GetWidth(),setting.GetHeight());
+	window.InitWindow();
 	SDL_Renderer* renderer = window.createRenderer();
 	
 	while(1)//application loop 
