@@ -2,7 +2,6 @@
 
 Window::Window()
 {
-	
    //Initialize non-existant window
    mWindow = NULL;
    mMouseFocus = false;
@@ -11,24 +10,67 @@ Window::Window()
    mMinimized = false;
    mWidth = 0;
    mHeight = 0;
-
 }
 
-bool Window::init()
+bool Window::InitWindow(int Width, int Height)
 {
     //Create window
-    mWindow = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 5, 5, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+    mWindow = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Width, Height, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
     if (mWindow != NULL)
     {
         mMouseFocus = true;
         mKeyboardFocus = true;
-        mWidth = 5;
-        mHeight = 5;
+        mWidth = Width;
+        mHeight = Height;
+
+
     }
     
 
     return mWindow != NULL;
 }
+
+
+void Window::test()
+{
+    SDL_Window* window;                    // Declare a pointer
+
+
+
+    SDL_Init(SDL_INIT_VIDEO);              // Initialize SDL2
+
+    // Create an application window with the following settings:
+    window = SDL_CreateWindow(
+        "An SDL2 window",                  // window title
+        SDL_WINDOWPOS_CENTERED,           // initial x position
+        SDL_WINDOWPOS_CENTERED,           // initial y position
+        640,                               // width, in pixels
+        480,                               // height, in pixels
+        SDL_WINDOW_OPENGL                  // flags - see below
+    );
+    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
+
+    // Check that the window was successfully created
+    if (window == NULL) {
+    
+    }
+
+    SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+
+    SDL_RenderClear(renderer);
+
+    SDL_RenderPresent(renderer);
+
+    // The window is open: could enter program loop here (see SDL_PollEvent())
+
+
+    // Close and destroy the window
+    SDL_DestroyWindow(window);
+
+    // Clean up
+    SDL_Quit();
+}
+
 
 SDL_Renderer* Window::createRenderer()
 {
@@ -44,50 +86,7 @@ void Window::handleEvent(SDL_Event& e)
         bool updateCaption = false;
         switch (e.window.event)
         {
-            //Get new dimensions and repaint on window size change
-        case SDL_WINDOWEVENT_SIZE_CHANGED:
-            mWidth = e.window.data1;
-            mHeight = e.window.data2;
-            SDL_RenderPresent(gRenderer);
-            break;
-
-            //Repaint on exposure
-        case SDL_WINDOWEVENT_EXPOSED:
-            SDL_RenderPresent(gRenderer);
-            break;
-            //Mouse entered window
-        case SDL_WINDOWEVENT_ENTER:
-            mMouseFocus = true;
-            updateCaption = true;
-            break;
-
-            //Mouse left window
-        case SDL_WINDOWEVENT_LEAVE:
-            mMouseFocus = false;
-            updateCaption = true;
-            break;
-
-            //Window has keyboard focus
-        case SDL_WINDOWEVENT_FOCUS_GAINED:
-            mKeyboardFocus = true;
-            updateCaption = true;
-            break;
-
-            //Window lost keyboard focus
-        case SDL_WINDOWEVENT_FOCUS_LOST:
-            mKeyboardFocus = false;
-            updateCaption = true;
-            break;
-            //Window minimized
-        case SDL_WINDOWEVENT_MINIMIZED:
-            mMinimized = true;
-            break;
-
-            //Window maxized
-        case SDL_WINDOWEVENT_MAXIMIZED:
-            mMinimized = false;
-            break;
-
+       
             //Window restored
         case SDL_WINDOWEVENT_RESTORED:
             mMinimized = false;

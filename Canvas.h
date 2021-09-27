@@ -3,5 +3,5 @@ class Canvas{
 public:
 	Canvas();
 	~Canvas();
-
+	// GetResolution();
 };

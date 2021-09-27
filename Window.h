@@ -6,8 +6,9 @@ public:
     //Intializes internals
     Window();
 
+    void test();
     //Creates window
-    bool init();
+    bool InitWindow(int Width, int Height);
 
     //Creates renderer from internal window
     SDL_Renderer* createRenderer();
