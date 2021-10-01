@@ -19,9 +19,21 @@ bool Application::Init()
 	window.InitWindow();
 	SDL_Renderer* renderer = window.createRenderer();
 	
+	
+	std::cout << "console mostra";
 	while(1)//application loop 
 	{
-	
+		SDL_Event event;
+		while (SDL_PollEvent(&event)) {  // poll until all events are handled!
+			/*switch (event)
+			{
+			default:
+				break;
+			}*/
+
+
+		// decide what to do with this event.
+		}
 	
 	
 	

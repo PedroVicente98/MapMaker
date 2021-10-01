@@ -2,6 +2,8 @@
 #include "SDL.h"
 #include "Window.h"
 #include "Settings.h"
+#include "SDL_image.h"
+#include <iostream>
 
 class Application
 {

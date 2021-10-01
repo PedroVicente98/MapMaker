@@ -55,7 +55,12 @@ void Window::test()
 
     // Check that the window was successfully created
     if (window == NULL) {
-    
+        std::cout << "Failed to initialise SDL Window for PNG files: " << SDL_GetError() << std::endl;
+    }
+
+    if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG))
+    {
+        std::cout << "Failed to initialise SDL_image for PNG files: " << IMG_GetError() << std::endl;
     }
 
     SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
