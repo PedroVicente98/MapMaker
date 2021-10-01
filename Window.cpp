@@ -103,9 +103,6 @@ void Window::handleEvent(SDL_Event& e)
     }
 }
 
-void Window::free()
-{
-}
 
 int Window::getWidth()
 {

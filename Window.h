@@ -18,9 +18,6 @@ public:
     //Handles window events
     void handleEvent(SDL_Event& e);
 
-    //Deallocates internals
-    void free();
-
 
     //Window dimensions
     void GetResolution();
@@ -36,6 +33,7 @@ private:
     //Window data
     SDL_Window* mWindow;
     SDL_Renderer* gRenderer;
+
     //Window dimensions
     int mWidth;
     int mHeight;
