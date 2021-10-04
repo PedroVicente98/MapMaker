@@ -6,6 +6,8 @@
 #include "Window.h"
 #include "Settings.h"
 #include <iostream>
+#include "Canvas.h"
+#include "Menu.h"
 
 class Application
 {
@@ -22,6 +24,8 @@ public:
 
 private:
 	bool isRunning;
+	Canvas* canvas;
+	Menu* menu;
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	SDL_DisplayMode* DM;

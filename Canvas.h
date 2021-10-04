@@ -9,7 +9,7 @@ class Canvas{
 public:
     Canvas(SDL_Window* window);
 	~Canvas();
-	
+
 private:
-	SDL_Renderer* renderer;
+
 };

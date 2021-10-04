@@ -33,6 +33,10 @@ void Application::Init(const char* title, int xpos, int ypos, int width, int hei
 		{
 			printf("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
 		}
+
+		canvas = new Canvas(window);
+		menu = new Menu(window);
+
 		isRunning = true;
 	}else
 	{
@@ -70,6 +74,7 @@ void Application::render()
 	SDL_RenderClear(renderer);
 	//add stuff to render
 	SDL_RenderCopy(renderer,texture,NULL,NULL);
+
 	std::cout << "Erro textura: " << SDL_GetError() << std::endl;
 	SDL_RenderPresent(renderer);
 }
