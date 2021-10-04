@@ -40,7 +40,7 @@ void Application::Init(const char* title, int xpos, int ypos, int width, int hei
 	}
 
 
-	texture = IMG_LoadTexture(renderer,"assets/Paisagem.jpg");
+	texture = IMG_LoadTexture(renderer,"assets/MundoConhecido72.png");
 	std::cout << "Erro Load: " << SDL_GetError() << std::endl;
 }
 

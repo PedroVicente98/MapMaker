@@ -5,11 +5,11 @@
 #include "SDL_keyboard.h"
 
 
-class Canvas{
+class Menu {
 public:
-    Canvas(SDL_Window* window);
-	~Canvas();
-	
+	Menu(SDL_Window* window;);
+	~Menu();
+
 private:
 	SDL_Renderer* renderer;
 };

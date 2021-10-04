@@ -24,6 +24,9 @@
     <ClCompile Include="Application.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Canvas.h">
@@ -36,6 +39,9 @@
       <Filter>libs</Filter>
     </ClInclude>
     <ClInclude Include="Application.h">
+      <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
       <Filter>libs</Filter>
     </ClInclude>
   </ItemGroup>
