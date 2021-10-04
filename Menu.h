@@ -8,8 +8,11 @@
 
 class Menu {
 public:
-	Menu(SDL_Window* window);
+	Menu(SDL_Renderer* renderer);
 	~Menu();
+	void Render();
 
 private:
+	SDL_Renderer* mRenderer;
+	SDL_Texture* texture;
 };

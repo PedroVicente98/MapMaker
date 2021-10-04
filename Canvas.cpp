@@ -1,12 +1,22 @@
 #include "Canvas.h"
 
-Canvas::Canvas(SDL_Window* window)
+Canvas::Canvas(SDL_Renderer* renderer)
 {
-	renderer = SDL_CreateRenderer(window, -1, 0);
+	cRenderer = renderer;
 
+
+
+	texture = IMG_LoadTexture(cRenderer, "assets/MundoConhecido72.png");
+	std::cout << "Erro Load Menu: " << cRenderer << std::endl;
+	std::cout << "Erro Load Menu2: " << renderer << std::endl;
 }
 
 Canvas::~Canvas()
 {
+}
+
+void Canvas::Render()
+{
+	SDL_RenderCopy(cRenderer, texture, NULL, NULL);
 }
 

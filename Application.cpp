@@ -35,7 +35,7 @@ void Application::Init(const char* title, int xpos, int ypos, int width, int hei
 		}
 
 		canvas = new Canvas(window);
-		menu = new Menu(window);
+		menu = new Menu(renderer);
 
 		isRunning = true;
 	}else
@@ -44,8 +44,8 @@ void Application::Init(const char* title, int xpos, int ypos, int width, int hei
 	}
 
 
-	texture = IMG_LoadTexture(renderer,"assets/MundoConhecido72.png");
-	std::cout << "Erro Load: " << SDL_GetError() << std::endl;
+	//texture = IMG_LoadTexture(renderer,"assets/MundoConhecido72.png");
+	//std::cout << "Erro Load: " << SDL_GetError() << std::endl;
 }
 
 void Application::handleEnvents()
@@ -73,7 +73,9 @@ void Application::render()
 {
 	SDL_RenderClear(renderer);
 	//add stuff to render
-	SDL_RenderCopy(renderer,texture,NULL,NULL);
+	//SDL_RenderCopy(renderer,texture,NULL,NULL);
+	menu->Render();
+	canvas->Render();
 
 	std::cout << "Erro textura: " << SDL_GetError() << std::endl;
 	SDL_RenderPresent(renderer);
