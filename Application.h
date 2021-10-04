@@ -1,8 +1,10 @@
 #pragma once
 #include "SDL.h"
+#include "SDL_image.h"
+#include "SDL_mouse.h"
+#include "SDL_keyboard.h"
 #include "Window.h"
 #include "Settings.h"
-#include "SDL_image.h"
 #include <iostream>
 
 class Application
@@ -16,15 +18,12 @@ public:
 	void render();
 	void clean();
 	bool running() { return isRunning; }
-	//void GetDisplayMode();
-	//int GetWidth() { return Width; }
-	//int GetHeight() { return Height; }
+
 
 private:
 	bool isRunning;
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	SDL_DisplayMode* DM;
-	//int Width;
-	//int Height;
+
 };

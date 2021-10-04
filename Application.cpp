@@ -1,6 +1,8 @@
 #include "Application.h"
 
 
+SDL_Texture* texture;
+
 Application::Application()
 {
 }
@@ -21,25 +23,25 @@ void Application::Init(const char* title, int xpos, int ypos, int width, int hei
 
 	if(SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
-		std::cout << "subsystems Initialised" << std::endl;
-
 		window = SDL_CreateWindow(title,xpos,ypos,width,height,flags);
-		if(window)
-		{
-			std::cout << "Window created!!" << std::endl;
-		}
 		renderer = SDL_CreateRenderer(window,-1,0);
 		if (renderer)
 		{
-			SDL_SetRenderDrawColor(renderer,69,200,69,0.5);
-			std::cout << "Renderer created!!" << std::endl;
+			SDL_SetRenderDrawColor(renderer, 69, 200, 69, 0.5);
 		}
-
+		if (!(IMG_Init(IMG_INIT_PNG | IMG_INIT_PNG)))
+		{
+			printf("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
+		}
 		isRunning = true;
 	}else
 	{
 		isRunning = false;
 	}
+
+
+	texture = IMG_LoadTexture(renderer,"assets/MundoConhecido72.png");
+	std::cout << "Erro Load: " << SDL_GetError() << std::endl;
 }
 
 void Application::handleEnvents()
@@ -59,13 +61,16 @@ void Application::handleEnvents()
 
 void Application::update()
 {
+	
+
 }
 
 void Application::render()
 {
 	SDL_RenderClear(renderer);
 	//add stuff to render
-
+	SDL_RenderCopy(renderer,texture,NULL,NULL);
+	std::cout << "Erro textura: " << SDL_GetError() << std::endl;
 	SDL_RenderPresent(renderer);
 }
 
@@ -77,38 +82,3 @@ void Application::clean()
 	std::cout << "Application Cleaned" << std::endl;
 }
 
-//void Application::GetDisplayMode()
-//{
-//	SDL_GetCurrentDisplayMode(0, DM);
-//	Width = DM->w;
-//	Height = DM->h;	
-//}
-
-
-/*SDL_Init(SDL_INIT_EVERYTHING);
-	\
-	Settings setting = Settings();
-
-	
-	SDL_Renderer* renderer = window.createRenderer();
-	
-	bool running = true;
-	SDL_Event event;
-
-	while(running)//application loop 
-	{
-
-		while (SDL_PollEvent(&event)) 
-		{  
-			if (event.type == SDL_QUIT)
-			{
-				running = false; 
-				break;
-			}
-				
-
-
-		}	
-	}
-
-	return 0;*/
