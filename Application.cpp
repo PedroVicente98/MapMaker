@@ -34,7 +34,7 @@ void Application::Init(const char* title, int xpos, int ypos, int width, int hei
 			printf("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
 		}
 
-		canvas = new Canvas(window);
+		canvas = new Canvas(renderer);
 		menu = new Menu(renderer);
 
 		isRunning = true;
